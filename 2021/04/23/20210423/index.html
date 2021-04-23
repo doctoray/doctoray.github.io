@@ -79,12 +79,16 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="张雷的博客">
-<meta property="og:url" content="http://yoursite.com/index.html">
+<meta name="description" content="背景vue2.0中，利用Object.defineProperty中的getter和setter把data数据项进行属性遍历，进而对数据变化进行拦截响应，以下面的代码为例。 let fruit = {   name: &amp;apos;apple&amp;apos;,   taste: &amp;apos;good&amp;apos;, }; 现在使用defineProperty方法更改属性并输出 Object.defineP">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Vue3.0 变量监听-proxy重构">
+<meta property="og:url" content="http://yoursite.com/2021/04/23/20210423/index.html">
 <meta property="og:site_name" content="张雷的博客">
+<meta property="og:description" content="背景vue2.0中，利用Object.defineProperty中的getter和setter把data数据项进行属性遍历，进而对数据变化进行拦截响应，以下面的代码为例。 let fruit = {   name: &amp;apos;apple&amp;apos;,   taste: &amp;apos;good&amp;apos;, }; 现在使用defineProperty方法更改属性并输出 Object.defineP">
+<meta property="og:updated_time" content="2021-04-23T02:14:14.502Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="张雷的博客">
+<meta name="twitter:title" content="Vue3.0 变量监听-proxy重构">
+<meta name="twitter:description" content="背景vue2.0中，利用Object.defineProperty中的getter和setter把data数据项进行属性遍历，进而对数据变化进行拦截响应，以下面的代码为例。 let fruit = {   name: &amp;apos;apple&amp;apos;,   taste: &amp;apos;good&amp;apos;, }; 现在使用defineProperty方法更改属性并输出 Object.defineP">
 
 
 
@@ -114,13 +118,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/"/>
+  <link rel="canonical" href="http://yoursite.com/2021/04/23/20210423/"/>
 
 
 
 
 
-  <title>张雷的博客</title>
+  <title>Vue3.0 变量监听-proxy重构 | 张雷的博客</title>
   
 
 
@@ -139,8 +143,7 @@
     
   
 
-  <div class="container sidebar-position-left 
-  page-home">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -213,9 +216,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
 
@@ -245,9 +248,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2021/04/23/20210423/" itemprop="url">Vue3.0 变量监听-proxy重构</a></h1>
+          <h1 class="post-title" itemprop="name headline">Vue3.0 变量监听-proxy重构</h1>
         
 
         <div class="post-meta">
@@ -297,9 +298,7 @@
       
 
       
-        
-          
-            <h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>vue2.0中，利用Object.defineProperty中的getter和setter把data数据项进行属性遍历，进而对数据变化进行拦截响应，以下面的代码为例。</p>
+        <h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>vue2.0中，利用Object.defineProperty中的getter和setter把data数据项进行属性遍历，进而对数据变化进行拦截响应，以下面的代码为例。</p>
 <pre><code>let fruit = {
   name: &apos;apple&apos;,
   taste: &apos;good&apos;,
@@ -382,8 +381,6 @@ proxy.push(&apos;vitamin&apos;)
 </code></pre><p>当然，这里代理的是elements而不是fruit本身，框架层面需要实现一个deepProxy实现逐层递归代理，而数组elements本身是被看成数组对象了，这样push才会被识别</p>
 <h2 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h2><p>Proxy借助handler函数实现一个set函数即可实现统一的赋值监听要求，不必要实现额外的value函数，这个对Vue3的运行效率及代码量控制都能起到正向作用</p>
 
-          
-        
       
     </div>
     
@@ -400,138 +397,28 @@ proxy.push(&apos;vitamin&apos;)
       
 
       
-
-      
-
       
       
-        <div class="post-eof"></div>
+
       
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/04/22/20210422/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Ray zhang">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="张雷的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2021/04/22/20210422/" itemprop="url">记自己通过的华为中级devops认证（重新回到githubIO）</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
             
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Veröffentlicht am</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2021-04-22T15:56:25+08:00">
-                2021-04-22
-              </time>
+              <a href="/2021/04/22/20210422/" rel="next" title="记自己通过的华为中级devops认证（重新回到githubIO）">
+                <i class="fa fa-chevron-left"></i> 记自己通过的华为中级devops认证（重新回到githubIO）
+              </a>
             
+          </div>
 
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
             
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
+          </div>
         </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
       
 
       
-        
-          
-            <p>本以为能一直写，好几年没动了，这次下定决心了，就这了，就当写日记了，雁过留痕，不能没有记录,争取以后一天一篇</p>
-<h2 id="证书涨啥样？"><a href="#证书涨啥样？" class="headerlink" title="证书涨啥样？"></a>证书涨啥样？</h2><p><img src="//yoursite.com/2021/04/22/20210422/20210422-1.png" alt="hcip-csde V2.0"></p>
-<h2 id="难吗？"><a href="#难吗？" class="headerlink" title="难吗？"></a>难吗？</h2><p>讲真，不难，但是我复习两天多时间，刚开始考试还是慌了，好多不会的，幸亏后续技术方面没有大意，成功扳回一成，600及格，750分过了</p>
-<h2 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h2><p>就看教材了，有人说题库好用，但是我找不到，淘宝买，算了吧，不是人民币玩家，但是我觉得教材真的够用了，题库一百左右，干点啥不好。</p>
-<h2 id="有用吗？"><a href="#有用吗？" class="headerlink" title="有用吗？"></a>有用吗？</h2><p>我觉得还可以，别的不敢说，相比于华为的云架构师认证，这个简直就是神一般存在，架构师那个我感觉就是背产品啊，这个好歹是技术口的，但是也比较水就是了，就是概念啥的，对devops能了解个大概吧</p>
-<h2 id="为啥考？"><a href="#为啥考？" class="headerlink" title="为啥考？"></a>为啥考？</h2><p>废话，还不是因为报销，哈哈</p>
-<p>此致</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
       
     </footer>
   </div>
@@ -541,140 +428,11 @@ proxy.push(&apos;vitamin&apos;)
   </article>
 
 
-    
-      
 
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/16/hexo/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Ray zhang">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="张雷的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/12/16/hexo/" itemprop="url">Hexo + github.io 属于自己的blog</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Veröffentlicht am</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-12-16T11:44:50+08:00">
-                2017-12-16
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>第一次上Hexo的贼船，避免不了的要安利一把Hexo，确实方便，使用算得上简单吧，不过没有想象中的简单，可以再傻瓜一点。</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><p>首先准备好环境（node + npm + git），不用说了吧</p>
-<h3 id="install-hexo"><a href="#install-hexo" class="headerlink" title="install hexo"></a>install hexo</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install hexo-cli -g</span><br></pre></td></tr></table></figure>
-<h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<h3 id="最后，加上发不到github-io的工具"><a href="#最后，加上发不到github-io的工具" class="headerlink" title="最后，加上发不到github.io的工具"></a>最后，加上发不到github.io的工具</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
-<h3 id="之后通过修改source-posts-文件夹下的markdown文件编辑blog，通过下面的文件更新"><a href="#之后通过修改source-posts-文件夹下的markdown文件编辑blog，通过下面的文件更新" class="headerlink" title="之后通过修改source/_posts/ 文件夹下的markdown文件编辑blog，通过下面的文件更新"></a>之后通过修改source/_posts/ 文件夹下的markdown文件编辑blog，通过下面的文件更新</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo clean &amp;&amp; hexo g &amp;&amp; hexo d</span><br></pre></td></tr></table></figure>
-<p>这样就能将部署代码直接上传到github.io,访问：用户名.github.io就能看到了，还是不错的。</p>
-<p>不过现在刚开始使用，好像咩有评论区和评论功能，再探探路。</p>
-
-          
-        
+    <div class="post-spread">
       
     </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
   </div>
-  
-  
-  
-  </article>
-
-
-    
-  </section>
-
-  
 
 
           </div>
@@ -682,6 +440,10 @@ proxy.push(&apos;vitamin&apos;)
 
 
           
+
+  
+
+
 
         </div>
         
@@ -702,8 +464,17 @@ proxy.push(&apos;vitamin&apos;)
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Inhaltsverzeichnis
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Übersicht
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -747,6 +518,22 @@ proxy.push(&apos;vitamin&apos;)
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#背景"><span class="nav-number">1.</span> <span class="nav-text"><a href="#&#x80CC;&#x666F;" class="headerlink" title="&#x80CC;&#x666F;"></a>&#x80CC;&#x666F;</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Proxy来解忧"><span class="nav-number">2.</span> <span class="nav-text"><a href="#Proxy&#x6765;&#x89E3;&#x5FE7;" class="headerlink" title="Proxy&#x6765;&#x89E3;&#x5FE7;"></a>Proxy&#x6765;&#x89E3;&#x5FE7;</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#结论"><span class="nav-number">3.</span> <span class="nav-text"><a href="#&#x7ED3;&#x8BBA;" class="headerlink" title="&#x7ED3;&#x8BBA;"></a>&#x7ED3;&#x8BBA;</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -887,6 +674,10 @@ proxy.push(&apos;vitamin&apos;)
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+
+
 
   
 
